@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f7f2">
+<title>ORIKIRI — 折って、切って、想像しよう。</title>
+<link rel="stylesheet" href="style.css"><script src="geometry.js" defer></script><script src="questions.js" defer></script><script src="renderer.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="./" aria-label="ORIKIRI ホーム"><span class="brand-icon">◩</span> ORIKIRI<span class="brand-dot">.</span></a><span class="header-note">紙からひろがる、想像力。</span><span class="edition">PAPER PUZZLE <b>01</b></span></header>
+<main>
+<section class="intro"><span class="eyebrow">折り紙 × ひらめき</span><h1>ひらく前に、<span>想像しよう。</span></h1><p>折って、切った紙。ひらくと、どんな形になるかな？</p></section>
+<nav class="question-nav" aria-label="問題の移動"><button class="secondary" id="previous">← 前の問題</button><button class="question-picker" id="show-questions" aria-haspopup="dialog"><span id="question-count">問題 1 / 10</span><span>問題一覧 ▦</span></button><button class="secondary" id="next">次の問題 →</button></nav>
+<dialog id="question-list" aria-labelledby="list-title"><div class="list-heading"><div><span class="eyebrow">CHOOSE A PUZZLE</span><h2 id="list-title">どの問題に挑戦する？</h2></div><button class="secondary" id="close-questions" aria-label="問題一覧を閉じる">閉じる</button></div><div class="question-grid" id="question-grid"></div><p class="list-note">★から順番に。好きな問題から遊んでも大丈夫。</p></dialog>
+<section class="workspace" aria-label="折り紙パズル">
+<div class="play-panel">
+<div class="panel-heading"><span class="question-tag">QUESTION 01</span><span class="difficulty"><i></i> はじめの一歩</span></div>
+<ol class="steps" aria-label="進行状況"><li class="active">折る</li><li>切る</li><li>予想する</li><li>ひらく</li></ol>
+<div class="stage" id="stage">
+<div class="paper-scene"><div class="paper" id="paper">
+<div class="half left"><div class="tile a"><div class="face front"></div><div class="face back"></div></div><div class="tile bottom b"><div class="face front"></div><div class="face back"></div></div></div>
+<div class="half right" id="right-half"><div class="tile c"><div class="face front"></div><div class="face back"></div></div><div class="tile bottom d"><div class="face front"></div><div class="face back"></div></div></div>
+</div><svg class="cut-guide" viewBox="0 0 400 400" aria-hidden="true"><path d="M156 200L200 156"/><g class="scissors"><text x="164" y="181">✂</text></g></svg><div class="scrap"></div></div>
+<span class="stage-note" id="stage-note">一枚の紙から、はじめよう。</span>
+</div>
+<div class="player-footer"><p id="instruction" role="status" aria-live="polite">準備はいい？ 紙の動きをよく見てね。</p><div class="controls"><button class="primary" id="play">▶ <span>再生</span></button><button class="secondary" id="replay" disabled>↻ もう一度見る</button><button class="reset" id="reset">最初から</button></div></div>
+</div>
+<aside class="quiz-panel"><div class="quiz-top"><span class="eyebrow">LET’S THINK</span><span class="tiny-spark">✧</span></div><h2>全部開くと、<br>どんな形になる？</h2><p class="quiz-description" id="quiz-description">紙を切ったら、答えをひとつ選んでね。</p><div class="choices" id="choices" aria-label="完成形の選択肢"></div><div class="feedback" id="feedback" role="status" aria-live="polite">まずは「再生」を押してみよう。</div><button class="primary reveal" id="reveal" hidden>開いて確認 <span>↗</span></button><div class="lesson" id="lesson" hidden><span>✧ 発見！</span><p>折り返したところには、同じ形が線対称に現れます。</p></div><div class="hint"><span>☀</span><p>頭の中で、そっとひらいてみよう。<br>まちがえても大丈夫！</p></div></aside>
+</section>
+<footer class="footer"><span>小さな紙に、大きなひらめき。</span><span>ORIKIRI — FOLD. CUT. DISCOVER.</span></footer>
+</main>
+</body></html>

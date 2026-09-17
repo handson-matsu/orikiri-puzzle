@@ -1,0 +1,158 @@
+:root{font-family:ui-rounded,"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#263e39;background:#f6f7f2;font-synthesis:none;--green:#227b64;--paper:#efd477;--muted:#84908a}
+*{box-sizing:border-box}
+body{margin:0}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit;cursor:pointer}
+button:disabled{cursor:default}
+button:focus-visible,a:focus-visible{outline:3px solid #d79832;outline-offset:5px}
+[hidden]{display:none!important}
+.header{height:96px;max-width:1280px;margin:auto;padding:0 52px;display:flex;align-items:center;gap:28px}
+.brand{display:flex;align-items:center;font-size:28px;font-weight:900;letter-spacing:2px;text-decoration:none;color:#253f37}
+.brand-icon{color:var(--green);font-size:33px;margin-right:11px}
+.brand-dot{color:#d5ae50}
+.header-note{font-size:11px;letter-spacing:1px;color:#84918a}
+.edition{margin-left:auto;font-size:10px;letter-spacing:2px;color:#7f8e86}
+.edition b{margin-left:12px;color:#314a40}
+main{max-width:1160px;margin:auto;padding:19px 32px 0}
+.intro{text-align:center;margin-bottom:37px}
+.eyebrow{font-size:10px;letter-spacing:2.5px;font-weight:700;color:var(--green)}
+h1{font-size:36px;letter-spacing:2px;margin:13px 0 14px;line-height:1.5}
+h1 span{color:var(--green)}
+.intro p{font-size:13px;color:#78867e;letter-spacing:.6px}
+.workspace{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr);gap:24px}
+.play-panel,.quiz-panel{background:white;border:1px solid #e5e9e0;border-radius:24px}
+.play-panel{overflow:hidden}
+.panel-heading{padding:25px 28px 19px;display:flex;justify-content:space-between;align-items:center}
+.question-tag{font-size:10px;letter-spacing:1.7px;font-weight:800}
+.difficulty{font-size:10px;color:#829087}
+.difficulty i{display:inline-block;width:6px;height:6px;background:#85af88;border-radius:50%;margin-right:6px}
+.steps{list-style:none;display:flex;justify-content:center;padding:0;margin:0 32px;gap:0}
+.steps li{font-size:11px;color:#9ba69e;display:flex;align-items:center;gap:7px;flex:1;justify-content:center}
+.steps li:before{content:'';width:6px;height:6px;border-radius:50%;background:#d9dfd6}
+.steps li.active{color:var(--green);font-weight:700}
+.steps li.active:before{background:var(--green);box-shadow:0 0 0 4px #e9f3ed}
+.stage{height:355px;position:relative;display:grid;place-items:center;background-image:radial-gradient(#dce3d7 .8px,transparent .8px);background-size:18px 18px;margin:20px 16px 0;border-radius:12px;background-color:#fafbf7;overflow:hidden}
+.paper-scene{position:relative;width:240px;height:240px;perspective:1000px;margin-top:-18px}
+.paper{width:100%;height:100%;position:absolute;transform-style:preserve-3d;filter:none}
+.half{position:absolute;top:0;width:50%;height:100%;transform-style:preserve-3d}
+.left{left:0}
+.right{left:50%;transform-origin:left center}
+.tile{position:absolute;width:100%;height:50%;transform-style:preserve-3d}
+.tile.bottom{top:50%;transform-origin:center top}
+.face{position:absolute;inset:0;background:var(--paper);backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #d2b95f;box-shadow:inset 0 0 24px #ffeaa54d}
+.face.back{transform:rotateY(180deg);background:#f7e5a5}
+.a .front,.c .front{border-bottom:1px dashed #c7af5e}
+.a .front,.b .front{border-right:1px dashed #c7af5e}
+.cut-guide{position:absolute;inset:0;width:100%;height:100%;overflow:visible;opacity:0;pointer-events:none}
+.cut-guide path{stroke:#37594b;stroke-width:3;stroke-dasharray:6 5;fill:none}
+.cut-guide text{font-size:32px;fill:#294c3f}
+.cut-guide.visible{opacity:1}
+.scissors{animation:snip 1.4s ease-in-out infinite}
+@keyframes snip{from{transform:translate(-10px,10px)}
+to{transform:translate(18px,-18px)}
+}
+.scrap{position:absolute;left:39%;top:39%;width:11%;height:11%;clip-path:polygon(100% 0,100% 100%,0 100%);background:#f7e5a5;opacity:0}
+.scrap.falling{animation:fall .85s ease-in forwards}
+@keyframes fall{0%{opacity:1;transform:translate(0,0)}
+100%{opacity:0;transform:translate(40px,90px) rotate(75deg)}
+}
+.stage-note{position:absolute;bottom:17px;font-size:11px;color:#87917f;letter-spacing:1px}
+.player-footer{padding:7px 20px 25px;text-align:center}
+.player-footer p{font-size:12px;min-height:19px;color:#728276;margin:15px 0 19px}
+.controls{display:flex;justify-content:center;align-items:center;gap:10px}
+.primary{background:var(--green);border:0;color:white;border-radius:11px;padding:13px 25px;font-size:12px;font-weight:700;box-shadow:0 3px 0 #17624e}
+.primary:hover:not(:disabled){background:#196e58}
+.primary:disabled{opacity:.4;box-shadow:none}
+.secondary{border:1px solid #dce5dc;background:#fff;color:#4e6858;border-radius:11px;padding:13px 16px;font-size:11px}
+.secondary:disabled{opacity:.4}
+.reset{border:0;background:none;color:#819084;font-size:10px;padding:12px 4px}
+.quiz-panel{padding:29px 28px;display:flex;flex-direction:column}
+.quiz-top{display:flex;justify-content:space-between;align-items:center}
+.tiny-spark{font-size:23px;color:#d3ad4f}
+h2{font-size:25px;line-height:1.6;letter-spacing:1px;margin:15px 0 8px}
+.quiz-description{font-size:11px;line-height:1.8;color:#819086;margin:0 0 20px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice{position:relative;height:118px;border:1.5px solid #e2e8de;border-radius:13px;background:#fafbf8;display:grid;place-items:center;transition:border-color .2s,background .2s,transform .2s}
+.choice:not(:disabled):hover{transform:translateY(-2px);border-color:#60a38b;background:#f0f7ee}
+.choice:disabled{opacity:.65}
+.choice .letter{position:absolute;top:10px;left:12px;font-size:10px;font-weight:800;color:#8d998e}
+.choice svg{width:66px;height:66px;filter:drop-shadow(0 2px 1px #74632212)}
+.choice.selected{border:2px solid var(--green);background:#edf5ee;opacity:1}
+.choice.correct{border:2px solid var(--green);opacity:1}
+.choice.wrong{border:2px solid #cf9b57;opacity:1}
+.feedback{font-size:11px;line-height:1.8;text-align:center;color:#869181;padding:18px 0 9px;min-height:47px}
+.feedback.success{color:var(--green);font-weight:700}
+.reveal{width:100%;margin:5px 0 10px;display:flex;justify-content:space-between}
+.hint{display:flex;gap:13px;align-items:center;margin-top:auto;padding-top:15px;border-top:1px solid #edf0e8;color:#919985}
+.hint>span{font-size:25px;color:#bca763}
+.hint p{font-size:10px;line-height:1.9;margin:0}
+.lesson{background:#eef5eb;border-radius:12px;padding:14px;margin:8px 0 16px}
+.lesson span{font-size:11px;font-weight:700;color:var(--green)}
+.lesson p{font-size:12px;line-height:1.9;margin:7px 0 0}
+.footer{display:flex;justify-content:space-between;padding:26px 3px 30px;color:#929c90;font-size:9px;letter-spacing:1px}
+
+@media(min-width:1200px){main{padding-top:28px}
+.stage{height:370px}
+.paper-scene{width:260px;height:260px}
+}
+
+@media(max-width:760px){.header{height:76px;padding:0 23px}
+.brand{font-size:23px}
+.header-note{display:none}
+.edition{font-size:8px}
+main{padding:10px 18px 0}
+.intro{margin-bottom:25px}
+h1{font-size:27px;letter-spacing:0}
+.intro p{font-size:11px}
+.workspace{grid-template-columns:1fr;gap:17px;max-width:520px;margin:auto}
+.stage{height:325px}
+.paper-scene{width:228px;height:228px}
+.quiz-panel{padding:24px}
+.quiz-panel h2 br{display:block}
+h2{font-size:21px}
+.choices{grid-template-columns:repeat(4,1fr);gap:8px}
+.choice{height:92px}
+.choice svg{width:48px;height:48px}
+.choice .letter{left:7px;top:5px;font-size:9px}
+.hint{margin-top:15px}
+.footer{font-size:8px;gap:20px;line-height:1.8}
+.controls{gap:8px}
+.primary{padding:13px 20px}
+.secondary{padding:13px 12px}
+}
+
+@media(prefers-reduced-motion:reduce){.scissors{animation:none}
+.choice{transition:none}
+.scrap.falling{animation-duration:.1s}
+}
+
+/* Question navigation is outside the original question 1 play surface. */
+.question-nav{display:flex;align-items:center;justify-content:space-between;margin:0 0 18px;gap:10px}
+.question-picker{border:0;background:none;color:#37594b;display:flex;flex-direction:column;gap:5px;align-items:center;padding:8px 12px}
+.question-picker span:first-child{font-size:13px;font-weight:700;letter-spacing:1px}
+.question-picker span:last-child{font-size:10px;color:#7c8e80}
+dialog{border:1px solid #e2e8de;border-radius:24px;padding:30px;width:min(680px,calc(100% - 32px));color:#263e39;background:#fafbf7;max-height:85vh;overflow:auto}
+dialog::backdrop{background:#263e3966;backdrop-filter:blur(4px)}
+.list-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.list-heading h2{font-size:22px;margin-bottom:24px}
+.question-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.question-grid button{position:relative;border:1px solid #dce5dc;border-radius:14px;background:#fff;padding:15px 5px;color:#42604c;min-height:96px}
+.question-grid button[aria-current="true"]{border:2px solid var(--green);background:#edf5ee}
+.question-grid strong{display:block;font-size:24px;margin-bottom:8px}
+.question-grid small{display:block;color:#b28c37;font-size:10px;letter-spacing:1px}
+.question-grid .completed{position:absolute;top:5px;right:8px;color:var(--green);font-size:11px}
+.list-note{font-size:11px;color:#829087;line-height:1.8;margin:22px 0 0}
+.geometry-paper,.geo-leaf{position:absolute;inset:0;transform-style:preserve-3d;transform-origin:0 0}
+.geo-leaf svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.geo-paper-fill{fill:#efd477}
+.geo-back{transform:rotateY(180deg) scaleX(-1)}
+.geo-back .geo-paper-fill{fill:#f7e5a5}
+.geometry-guide{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;transform:translateZ(2px)}
+.stage-note{max-width:calc(100% - 22px);text-align:center;line-height:1.7}
+@media(max-width:760px){.question-nav{max-width:520px;margin:0 auto 16px}.question-nav .secondary{font-size:10px;padding:12px 10px}.question-grid{gap:7px}.question-grid button{min-height:77px;padding:12px 3px}dialog{padding:20px}.list-heading h2{font-size:17px}.question-picker{padding:8px 2px}.question-picker span:first-child{font-size:12px}.question-grid strong{font-size:21px}.question-grid small{font-size:8px}}
+/* Keep Q1's original choice sizes; complex new patterns need readable details. */
+.extended .choice svg{width:84px;height:84px}
+@media(max-width:760px){.extended .choices{grid-template-columns:repeat(2,minmax(0,1fr))}.extended .choice{height:116px}.extended .choice svg{width:76px;height:76px}.extended .choice .letter{top:10px;left:12px}}
+.extended .choice svg{transform:translateY(6px)}
+#close-questions{white-space:nowrap;flex-shrink:0}
+@media(max-width:360px){.extended .steps li{font-size:10px;gap:5px;white-space:nowrap}}
