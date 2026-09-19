@@ -72,11 +72,12 @@ to{transform:translate(18px,-18px)}
 h2{font-size:25px;line-height:1.6;letter-spacing:1px;margin:15px 0 8px}
 .quiz-description{font-size:11px;line-height:1.8;color:#819086;margin:0 0 20px}
 .choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.choice{position:relative;height:118px;border:1.5px solid #e2e8de;border-radius:13px;background:#fafbf8;display:grid;place-items:center;transition:border-color .2s,background .2s,transform .2s}
+.choice{position:relative;min-width:0;height:182px;padding:28px 6px 10px;border:1.5px solid #e2e8de;border-radius:13px;background:#fafbf8;display:grid;place-items:center;transition:border-color .2s,background .2s,transform .2s}
 .choice:not(:disabled):hover{transform:translateY(-2px);border-color:#60a38b;background:#f0f7ee}
 .choice:disabled{opacity:.65}
 .choice .letter{position:absolute;top:10px;left:12px;font-size:10px;font-weight:800;color:#8d998e}
-.choice svg{width:66px;height:66px;filter:drop-shadow(0 2px 1px #74632212)}
+/* Enlarge every choice equally; preserve the exact cut geometry. */
+.choice svg{width:100%;max-width:144px;height:auto;aspect-ratio:1;filter:drop-shadow(0 2px 1px #74632212)}
 .choice.selected{border:2px solid var(--green);background:#edf5ee;opacity:1}
 .choice.correct{border:2px solid var(--green);opacity:1}
 .choice.wrong{border:2px solid #cf9b57;opacity:1}
@@ -110,10 +111,9 @@ h1{font-size:27px;letter-spacing:0}
 .quiz-panel{padding:24px}
 .quiz-panel h2 br{display:block}
 h2{font-size:21px}
-.choices{grid-template-columns:repeat(4,1fr);gap:8px}
-.choice{height:92px}
-.choice svg{width:48px;height:48px}
-.choice .letter{left:7px;top:5px;font-size:9px}
+.choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.choice{height:170px}
+.choice svg{max-width:132px}
 .hint{margin-top:15px}
 .footer{font-size:8px;gap:20px;line-height:1.8}
 .controls{gap:8px}
@@ -150,9 +150,5 @@ dialog::backdrop{background:#263e3966;backdrop-filter:blur(4px)}
 .geometry-guide{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;transform:translateZ(2px)}
 .stage-note{max-width:calc(100% - 22px);text-align:center;line-height:1.7}
 @media(max-width:760px){.question-nav{max-width:520px;margin:0 auto 16px}.question-nav .secondary{font-size:10px;padding:12px 10px}.question-grid{gap:7px}.question-grid button{min-height:77px;padding:12px 3px}dialog{padding:20px}.list-heading h2{font-size:17px}.question-picker{padding:8px 2px}.question-picker span:first-child{font-size:12px}.question-grid strong{font-size:21px}.question-grid small{font-size:8px}}
-/* Keep Q1's original choice sizes; complex new patterns need readable details. */
-.extended .choice svg{width:84px;height:84px}
-@media(max-width:760px){.extended .choices{grid-template-columns:repeat(2,minmax(0,1fr))}.extended .choice{height:116px}.extended .choice svg{width:76px;height:76px}.extended .choice .letter{top:10px;left:12px}}
-.extended .choice svg{transform:translateY(6px)}
 #close-questions{white-space:nowrap;flex-shrink:0}
-@media(max-width:360px){.extended .steps li{font-size:10px;gap:5px;white-space:nowrap}}
+@media(max-width:360px){.choices{margin-inline:-16px}.extended .steps li{font-size:10px;gap:5px;white-space:nowrap}}
